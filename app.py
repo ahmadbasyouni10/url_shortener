@@ -8,8 +8,10 @@ import random, string
 from datetime import datetime, timedelta, timezone
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # URL Key Generator Service
 # SQL db to ensure isolation and atomic transactions for concurrency issues
